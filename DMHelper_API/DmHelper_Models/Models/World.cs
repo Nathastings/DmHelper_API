@@ -13,6 +13,9 @@ namespace DmHelper_Models.Models
 
         public string Name { get; set; }
 
-        public IEnumerable<IRegion> SubRegions { get; set; }
+        public ICollection<IRegion> SubRegions { get; set; }
+
+        public IEnumerable<Campaign> Campaigns { get; set; }
+
     }
 }

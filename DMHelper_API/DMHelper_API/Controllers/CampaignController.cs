@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -11,25 +12,16 @@ namespace DMHelper_API.Controllers
 {
     public class CampaignController : ApiController
     {
+        CampaignDao _campDao;
 
-        List<Campaign> campaigns = new List<Campaign>();
-
+        public CampaignController()
+        {
+            BasicConnection baseConnection = new BasicConnection(ConfigurationManager.ConnectionStrings["DmHelperConnection"]);
+            _campDao = new CampaignDao(baseConnection);
+        }
         public IEnumerable<Campaign> GetAllCampaigns()
         {
-            campaigns.Add(new Campaign() {
-                Id = 1,
-                Name = "Lyrentia",
-                Description = "Built upon the remnants of an ancient civilization that is now lost, civilization has reached a temperate balance in the kingdom of Lyrentia."
-            });
-
-            campaigns.Add(new Campaign() {
-                Id = 2,
-                Name = "Seal of the Savior",
-                Description = "Eons ago a great civilization was brought to its knees by a cataclysmic event. In a last ditch effort to prevent its spread the masters of the arcane trapped the force behind a massive Seal. Today, that seal is beginning to fail."
-            });
-
-
-            return campaigns;
+            return _campDao.GetAllCampaigns();
         }
 
     }

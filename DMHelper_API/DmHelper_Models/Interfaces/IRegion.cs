@@ -5,6 +5,6 @@ namespace DmHelper_Models.Interfaces
     public interface IRegion : IEntity
     {
         string Coordinates { get; set; }
-        IEnumerable<IRegion> SubRegions { get; set; }
+        ICollection<IRegion> SubRegions { get; set; }
     }
 }
