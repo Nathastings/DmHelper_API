@@ -22,6 +22,7 @@ namespace DMHelper_API.Controllers
             _worldDao = new WorldDao(baseConnection);
         }
         
+        [HttpGet, ActionName("GetAll")]
         public IEnumerable<World> GetAllWorlds()
         {
             var worlds = _worldDao.GetAllWorlds();
@@ -39,6 +40,7 @@ namespace DMHelper_API.Controllers
             return worlds;
         }
 
+        [HttpGet, ActionName("GetOne")]
         public World GetWorld_ByID(int id) {
 
             var world = _worldDao.GetWorld(id);

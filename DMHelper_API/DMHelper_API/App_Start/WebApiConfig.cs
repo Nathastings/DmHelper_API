@@ -21,10 +21,23 @@ namespace DMHelper_API
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
-                name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
+                name: "FetchSingle",
+                routeTemplate: "api/{controller}/single/{id}",
+                defaults: new { action = "GetOne" }
             );
+
+            config.Routes.MapHttpRoute(
+                name: "FetchAll",
+                routeTemplate: "api/{controller}/all",
+                defaults: new {action = "GetAll" }
+            );
+
+            //The Old Default Route For Reference.
+            //config.Routes.MapHttpRoute(
+            //    name: "DefaultApi",
+            //    routeTemplate: "api/{controller}/{id}",
+            //    defaults: new { id = RouteParameter.Optional }
+            //);
         }
     }
 }

@@ -19,6 +19,7 @@ namespace DMHelper_API.Controllers
             BasicConnection baseConnection = new BasicConnection(ConfigurationManager.ConnectionStrings["DmHelperConnection"]);
             _campDao = new CampaignDao(baseConnection);
         }
+        [HttpGet, ActionName("GetAll")]
         public IEnumerable<Campaign> GetAllCampaigns()
         {
             return _campDao.GetAllCampaigns();
