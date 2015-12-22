@@ -5,11 +5,13 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using DmHelper_Data;
 using DmHelper_Models.Models;
 
 namespace DMHelper_API.Controllers
 {
+    
     public class WorldController: ApiController
     {
         private CampaignDao _campDao;
@@ -23,6 +25,7 @@ namespace DMHelper_API.Controllers
         }
         
         [HttpGet, ActionName("GetAll")]
+        //[EnableCors(origins: "*", headers: "*", methods: "GET")]
         public IEnumerable<World> GetAllWorlds()
         {
             var worlds = _worldDao.GetAllWorlds();
