@@ -7,5 +7,7 @@ namespace DmHelper_Models.Interfaces
         int Id {get; set; }
         string Name { get; set; }
         string Description { get; set; }
+        string ToolTip { get; set; }
+        int DefaultImageId { get; set; }
     }
 }
