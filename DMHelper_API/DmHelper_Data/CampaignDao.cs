@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using DmHelper_Data.Interfaces;
 
+using NHibernate;
+
+using DmHelper_Data.Interfaces;
 using DmHelper_Models.Models;
 
 namespace DmHelper_Data
 {
     public class CampaignDao : BaseDao, ICampaignDao
     {
-        public CampaignDao(IConnection connection) : base(connection) { }
+        public CampaignDao( ISession connection) : base(connection) { }
 
         public IEnumerable<Campaign> GetAllCampaigns()
         {

@@ -1,12 +1,13 @@
 ﻿using System;
+using NHibernate;
 using DmHelper_Data.Interfaces;
 namespace DmHelper_Data
 {
     public class BaseDao : IBaseDao
     {
-        public IConnection Connection { get; private set; }
+        public ISession Connection { get; private set; }
 
-        public BaseDao(IConnection connection)
+        public BaseDao(ISession connection)
         {
             Connection = connection;
         }

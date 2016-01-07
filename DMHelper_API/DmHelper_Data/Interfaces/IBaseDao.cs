@@ -1,8 +1,9 @@
-﻿
+﻿using NHibernate;
+
 namespace DmHelper_Data.Interfaces
 {
     public interface IBaseDao
     {
-        IConnection Connection { get; }
+        ISession Connection { get; }
     }
 }

@@ -6,6 +6,7 @@ using Castle.Core.Internal;
 using Castle.MicroKernel.Facilities;
 using Castle.MicroKernel.Registration;
 
+using Npgsql;
 using FluentNHibernate.Automapping;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
@@ -17,7 +18,7 @@ using FluentNHibernate.Mapping;
 
 namespace DmHelper_Data.Plumbing
 {
-    class DaoFacility : AbstractFacility
+    public class DaoFacility : AbstractFacility
     {
         private IConnection currentConnection;
 
@@ -41,10 +42,9 @@ namespace DmHelper_Data.Plumbing
         private Configuration BuildDatabaseConfiguration()
         {
             var config = Fluently.Configure();
-            config.Database(PostgreSQLConfiguration.PostgreSQL82
-                .ConnectionString(currentConnection.GetConnectionString()));
+            config.Database(currentConnection.GetConnection());
             config.Mappings(m => m.FluentMappings.AddFromAssemblyOf<WorldMap>());
-            config.ExposeConfiguration(x => x.SetProperty("hbm2ddl.keywords", "auto-quote")); //need this to work with postgres
+            currentConnection.ModifyConfig(ref config); //pass the config by ref to make any environment specific changes needed.
             return config.BuildConfiguration();
         }
     }

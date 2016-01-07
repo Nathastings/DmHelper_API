@@ -6,23 +6,23 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using DmHelper_Data;
+using DmHelper_Data.Interfaces;
 using DmHelper_Models.Models;
 
 namespace DMHelper_API.Controllers
 {
     public class CampaignController : ApiController
     {
-        CampaignDao _campDao;
+        private readonly ICampaignDao _dao;
 
-        public CampaignController()
+        public CampaignController(ICampaignDao dao)
         {
-            BasicConnection baseConnection = new BasicConnection(ConfigurationManager.ConnectionStrings["DmHelperConnection"]);
-            _campDao = new CampaignDao(baseConnection);
+            _dao = dao;
         }
         [HttpGet, ActionName("GetAll")]
         public IEnumerable<Campaign> GetAllCampaigns()
         {
-            return _campDao.GetAllCampaigns();
+            return _dao.GetAllCampaigns();
         }
 
     }

@@ -9,7 +9,7 @@ namespace DmHelper_Data.DaoMappings
         {
             Table("world");
             Schema("dmhelper_client");
-            Id(x => x.Id);
+            Id(x => x.Id).Column("worldid");
             Map(x => x.ToolTip).Column("shortdescription");
             Map(x => x.Description).Column("longdescription");
             Map(x => x.Name).Column("name");
