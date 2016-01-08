@@ -69,6 +69,7 @@
     <Compile Include="BasicConnection.cs" />
     <Compile Include="CampaignDao.cs" />
     <Compile Include="DaoMappings\CampaignMap.cs" />
+    <Compile Include="DaoMappings\ImageMap.cs" />
     <Compile Include="DaoMappings\WorldMap.cs" />
     <Compile Include="Interfaces\IBaseDao.cs" />
     <Compile Include="Interfaces\ICampaignDao.cs" />

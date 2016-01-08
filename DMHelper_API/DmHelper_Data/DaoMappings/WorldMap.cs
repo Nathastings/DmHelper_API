@@ -14,6 +14,13 @@ namespace DmHelper_Data.DaoMappings
             Map(x => x.Description).Column("longdescription");
             Map(x => x.Name).Column("name");
             Map(x => x.DefaultImageId).Column("defaultimageid");
+
+            HasManyToMany(x => x.Images)
+                .Cascade.All()
+                .Table("world_images")
+                .Schema("dmhelper_client")
+                .ChildKeyColumn("imageid")
+                .ParentKeyColumn("worldid");
         }
     }
 }

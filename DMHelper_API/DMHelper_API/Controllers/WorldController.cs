@@ -30,6 +30,10 @@ namespace DMHelper_API.Controllers
 
             if (worlds.Count() > 0)
             {
+                foreach(World w in worlds)
+                {
+                    w.DefaultImage = w.Images.Where(x => x.Id == w.DefaultImageId).FirstOrDefault();
+                }
             }
 
             return worlds;

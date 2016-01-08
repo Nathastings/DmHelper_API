@@ -50,6 +50,7 @@
     <Compile Include="Models\City.cs" />
     <Compile Include="Models\Country.cs" />
     <Compile Include="Models\Dungeon.cs" />
+    <Compile Include="Models\Image.cs" />
     <Compile Include="Models\Province.cs" />
     <Compile Include="Models\Race.cs" />
     <Compile Include="Models\World.cs" />

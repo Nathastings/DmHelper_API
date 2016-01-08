@@ -13,5 +13,7 @@ namespace DmHelper_Models.Models
         public virtual IList<IRegion> SubRegions { get; set; }
         public virtual IEnumerable<Campaign> Campaigns { get; set; }
         public virtual int DefaultImageId{get; set;}
+        public virtual Image DefaultImage { get; set; }
+        public virtual IList<Image> Images { get; protected set; }
     }
 }
