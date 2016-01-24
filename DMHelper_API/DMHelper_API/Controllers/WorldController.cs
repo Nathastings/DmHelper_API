@@ -21,7 +21,7 @@ namespace DMHelper_API.Controllers
             _dao = dao;
         }
         
-        [HttpGet, ActionName("GetAll")]
+        [HttpGet, ActionName("GetAll"), AllowAnonymous]
         //[EnableCors(origins: "*", headers: "*", methods: "GET")]
         public IEnumerable<World> GetAllWorlds()
         {
@@ -39,7 +39,7 @@ namespace DMHelper_API.Controllers
             return worlds;
         }
 
-        [HttpGet, ActionName("GetOne")]
+        [HttpGet, ActionName("GetOne"),AllowAnonymous]
         public World GetWorld_ByID(int id) {
 
             var world = _dao.GetWorld(id);
